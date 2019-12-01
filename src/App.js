@@ -1,26 +1,34 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import Header from './Header/Header';
+import Search from './Search/Search';
+import Results from './Results/Results.js';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends React.Component {
+  
+  // Build Search Query String For Fetch API
+  buildSearchQuery = () => {
+    const modifiedSearch = (document.querySelector("#searchText").value).replace(/ /g, "+");
+    return modifiedSearch;
+  }
+  
+  onSearch = (e) => {
+    e.preventDefault();
+    alert("Search Started!");
+    fetch(`https://www.googleapis.com/books/v1/volumes?q=${this.buildSearchQuery()}`)
+    .then (response => response.json())
+    .then (response => console.log(response));
+  }
+  
+  render() {
+    return (
+      <main className="App">
+        <Header />
+        <Search onSearch={this.onSearch}/>
+        <Results />
+      </main>
+    )
+  }
+
 }
 
 export default App;

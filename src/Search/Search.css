@@ -1,0 +1,23 @@
+.searchtop {
+    background-color: darkgray;
+    color: black;
+    padding: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.searchbottom {
+    background-color: lightgray;
+    color: black;
+    padding: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.formItems {
+    border-radius: 4px;
+    margin: 4px;
+    padding: 4px;
+}

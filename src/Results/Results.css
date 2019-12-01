@@ -1,0 +1,8 @@
+.results {
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: whitesmoke;
+    margin: auto;
+}
