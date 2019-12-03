@@ -5,6 +5,16 @@ import Results from './Results/Results.js';
 
 class App extends React.Component {
   
+  constructor(props) {
+    super(props)
+
+    this.state = {
+      showResults: false,
+      books: null
+    }
+
+  }
+  
   // Build Search Query String For Fetch API
   buildSearchQuery = () => {
     const modifiedSearch = (document.querySelector("#searchText").value).replace(/ /g, "+");
@@ -13,10 +23,14 @@ class App extends React.Component {
   
   onSearch = (e) => {
     e.preventDefault();
-    alert("Search Started!");
     fetch(`https://www.googleapis.com/books/v1/volumes?q=${this.buildSearchQuery()}`)
     .then (response => response.json())
-    .then (response => console.log(response));
+    .then (response => {
+      this.setState({
+        showResults: true,
+        books: response
+      })
+    });
   }
   
   render() {
@@ -24,7 +38,7 @@ class App extends React.Component {
       <main className="App">
         <Header />
         <Search onSearch={this.onSearch}/>
-        <Results />
+        <Results showResults={this.state.showResults} books={this.state.books}/>
       </main>
     )
   }

@@ -1,0 +1,10 @@
+.book {
+    display: flex;
+    flex-direction: row;
+
+}
+
+.bookInfo{
+    display: flex;
+    flex-direction: column;
+}

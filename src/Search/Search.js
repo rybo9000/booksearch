@@ -12,11 +12,17 @@ class Search extends React.Component {
                     <div className="searchbottom">
                         Print Type: 
                         <select className="formItems">
-                            <option value="All">All</option>
+                            <option value="all">All</option>
+                            <option value="books">Books</option>
+                            <option value="magazines">Magazines</option>
                         </select>
                         Book Type: 
                         <select className="formItems">
                             <option value="noFilter">No Filter</option>
+                            <option value="partial">Partial</option>
+                            <option value="free-ebooks">Free Ebooks</option>
+                            <option value="paid-ebooks">Paid Ebooks</option>
+                            <option value="ebooks">Ebooks</option>
                         </select>
                     </div>
                 </form>
