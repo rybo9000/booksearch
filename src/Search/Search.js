@@ -2,7 +2,21 @@ import React from 'react';
 import './Search.css';
 
 class Search extends React.Component {
+
+
+    
+
+    
     render() {
+        
+        // selectValue = (value) => {
+        //     if (value === this.props.printType) {
+        //         return "selected";
+        //     }
+        // }
+        
+        // console.log(this.selectValue("all"));
+        
         return (
             <section className="search">
                 <form onSubmit={e => this.props.onSearch(e)}>
@@ -13,7 +27,7 @@ class Search extends React.Component {
                         Print Type: 
                         <select className="formItems">
                             <option value="all">All</option>
-                            <option value="books">Books</option>
+                            <option value="books" selected>Books</option>
                             <option value="magazines">Magazines</option>
                         </select>
                         Book Type: 

@@ -10,7 +10,9 @@ class App extends React.Component {
 
     this.state = {
       showResults: false,
-      books: null
+      books: null,
+      printType: "books",
+      bookType: "ebooks"
     }
 
   }
@@ -37,7 +39,7 @@ class App extends React.Component {
     return (
       <main className="App">
         <Header />
-        <Search onSearch={this.onSearch}/>
+        <Search onSearch={this.onSearch} printType={this.state.printType} bookType={this.state.bookType} />
         <Results showResults={this.state.showResults} books={this.state.books}/>
       </main>
     )
